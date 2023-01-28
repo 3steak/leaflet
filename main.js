@@ -1,4 +1,15 @@
+
+
+
 function init() {
+
+    // Création de mon ping
+
+    var myIcon = L.icon({
+        iconUrl: 'bits56.png',
+        iconSize: [40, 40],
+        popupAnchor: [0, -20],
+    });
     // Coordonnés de ma ville
     const amiens = {
         lat: 49.894067,
@@ -21,7 +32,7 @@ function init() {
 
 
     // //  ajout marker
-    var marker = L.marker();
+    var marker = L.marker([], { icon: myIcon });
 
     // Ma description de publication
     let content = "let's go ";
