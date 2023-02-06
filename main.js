@@ -3,22 +3,22 @@
 
 function init() {
 
-    // Création de mon ping
+    // Création de mon ping personnalisé
 
     var myIcon = L.icon({
-        iconUrl: 'bits56.png',
+        iconUrl: 'surf.png',
         iconSize: [40, 40],
-        popupAnchor: [0, -20],
+        popupAnchor: [0, -30],
     });
     // Coordonnés de ma ville
     const amiens = {
         lat: 49.894067,
         lng: 2.295753
     }
-    // lvl du zoom
-    const zoomLevel = 7;
+    // lvl du zoom sur la ville 
+    const zoomLevel = 10;
 
-    //  L est un objet 
+    //  "L" est un objet
     // J'utilise ses methodes 
     const map = L.map('mapid').setView([amiens.lat, amiens.lng], zoomLevel);
 
