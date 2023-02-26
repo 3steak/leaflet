@@ -37,9 +37,10 @@
             $key++;
             $tab =  json_encode($map);
             echo $tab; ?> </div>
-    <div id='mapid<?= $key ?>'>
+    <div id='mapid<?= $key ?>' style=" height: 40vh;
+    width: 50vw;">
     </div><br>
-    <hr>"
+    <hr>
 <?php
         }
 ?>

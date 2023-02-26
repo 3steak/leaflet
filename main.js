@@ -65,9 +65,7 @@ function init() {
 // button.addEventListener('click', onbtnClick);
 function map() {
     let spot = document.getElementById("spots").innerHTML;
-    console.log(spot);
     spot = JSON.parse(spot);
-    console.log(spot);
     var myIcon = L.icon({
         iconUrl: '/public/assets/img/surf.png',
         iconSize: [40, 40],
@@ -78,7 +76,6 @@ function map() {
         lat: spot.latitude,
         lng: spot.longitude
     }
-    console.log(spt);
     // lvl du zoom
     const zoomLevel = 7;
 
@@ -95,6 +92,7 @@ function map() {
     mainLayer.addTo(map);
     i++;
 };
+
 setTimeout(() => {
     map();
 }, '500');
