@@ -32,11 +32,15 @@
     <div id="spots">
 
         <?php
-        foreach ($listMap as  $map) {
+
+        foreach ($listMap as $key => $map) {
+            $key++;
             $tab =  json_encode($map);
             echo $tab; ?> </div>
-<?php echo "<div id='mapid'>
-            </div><br><hr>";
+    <div id='mapid<?= $key ?>'>
+    </div><br>
+    <hr>"
+<?php
         }
 ?>
 

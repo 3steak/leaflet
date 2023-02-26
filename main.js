@@ -69,7 +69,7 @@ function map() {
     spot = JSON.parse(spot);
     console.log(spot);
     var myIcon = L.icon({
-        iconUrl: 'bits56.png',
+        iconUrl: '/public/assets/img/surf.png',
         iconSize: [40, 40],
         popupAnchor: [0, -20],
     });
@@ -83,8 +83,9 @@ function map() {
     const zoomLevel = 7;
 
     //  L est un objet 
-    // J'utilise ses methodes 
-    const map = L.map('mapid').setView([spt.lat, spt.lng], zoomLevel);
+    // J'utilise ses methodes
+    let i = 1;
+    const map = L.map('mapid' + i).setView([spt.lat, spt.lng], zoomLevel);
 
     const mainLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -92,6 +93,7 @@ function map() {
     });
     // AJout du layer a la map(MAPID dans le html)
     mainLayer.addTo(map);
+    i++;
 };
 setTimeout(() => {
     map();
