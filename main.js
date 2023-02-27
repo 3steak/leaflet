@@ -64,33 +64,44 @@ function init() {
 
 // button.addEventListener('click', onbtnClick);
 function map() {
-    let spot = document.getElementById("spots").innerHTML;
-    spot = JSON.parse(spot);
+    let spots = document.getElementById("spots").innerHTML;
+    spots = JSON.parse(spots);
+    console.log(spots);
     var myIcon = L.icon({
         iconUrl: '/public/assets/img/surf.png',
         iconSize: [40, 40],
         popupAnchor: [0, -20],
     });
-    // Coordonnés de ma ville
-    let spt = {
-        lat: spot.latitude,
-        lng: spot.longitude
-    }
-    // lvl du zoom
-    const zoomLevel = 7;
+    let maps = [];
+    spots.forEach(spot => {
 
-    //  L est un objet 
-    // J'utilise ses methodes
-    let i = 1;
-    const map = L.map('mapid' + i).setView([spt.lat, spt.lng], zoomLevel);
+        let i = 1;
+        // Coordonnés de ma ville
+        let spt = {
+            lat: spot.latitude,
+            lng: spot.longitude
+        }
+        // lvl du zoom
+        const zoomLevel = 7;
 
+        //  L est un objet 
+        // J'utilise ses methodes
+
+        maps += L.map(`mapid${i}`).setView([spt.lat, spt.lng], zoomLevel);
+
+        // AJout du layer a la map(MAPID dans le html)
+
+        i++;
+
+    });
     const mainLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
-    // AJout du layer a la map(MAPID dans le html)
-    mainLayer.addTo(map);
-    i++;
+    maps.forEach(map => {
+        mainLayer.addTo(map);
+        map.invalidateSize();
+    });
 };
 
 setTimeout(() => {

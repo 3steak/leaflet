@@ -32,11 +32,13 @@
     <div id="spots">
 
         <?php
+        $listmap =  json_encode($listMap);
+        echo $listmap;
 
         foreach ($listMap as $key => $map) {
-            $key++;
-            $tab =  json_encode($map);
-            echo $tab; ?> </div>
+
+            $key++; ?>
+    </div>
     <div id='mapid<?= $key ?>' style=" height: 40vh;
     width: 50vw;">
     </div><br>
