@@ -11,7 +11,7 @@ function init() {
         popupAnchor: [0, -30],
     });
     // Coordonnés de ma ville
-    const amiens = {
+    const town = {
         lat: 49.894067,
         lng: 2.295753
     }
@@ -20,7 +20,7 @@ function init() {
 
     //  "L" est un objet
     // J'utilise ses methodes 
-    const map = L.map('mapid').setView([amiens.lat, amiens.lng], zoomLevel);
+    const map = L.map('mapid').setView([town.lat, town.lng], zoomLevel);
 
     const mainLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -51,59 +51,60 @@ function init() {
     map.on('click', onMapClick);
 
 
-    // fin fonxtion init
+    // fin fonction init
 }
-// let lat;
-// init();
-// let button = document.getElementById('button');
-// let text = document.getElementById('text');
-// console.log(button);
-// function onbtnClick(e) {
-//     text.innerHTML = "La latitude, longitude de votre point : " + lat;
-// }
+let lat;
+init();
+let button = document.getElementById('button');
 
-// button.addEventListener('click', onbtnClick);
-function map() {
-    let spots = document.getElementById("spots").innerHTML;
-    spots = JSON.parse(spots);
-    console.log(spots);
-    var myIcon = L.icon({
-        iconUrl: '/public/assets/img/surf.png',
-        iconSize: [40, 40],
-        popupAnchor: [0, -20],
-    });
-    let maps = [];
-    spots.forEach(spot => {
+let text = document.getElementById('text');
+console.log(button);
+function onbtnClick(e) {
+    text.innerHTML = "La latitude, longitude de votre point : " + lat;
+}
 
-        let i = 1;
-        // Coordonnés de ma ville
-        let spt = {
-            lat: spot.latitude,
-            lng: spot.longitude
-        }
-        // lvl du zoom
-        const zoomLevel = 7;
+button.addEventListener('click', onbtnClick);
+// function map() {
+//     let spots = document.getElementById("spots").innerHTML;
+//     spots = JSON.parse(spots);
+//     console.log(spots);
+//     var myIcon = L.icon({
+//         iconUrl: '/public/assets/img/surf.png',
+//         iconSize: [40, 40],
+//         popupAnchor: [0, -20],
+//     });
+//     let maps = [];
+//     spots.forEach(spot => {
 
-        //  L est un objet 
-        // J'utilise ses methodes
+//         let i = 1;
+//         // Coordonnés de ma ville
+//         let spt = {
+//             lat: spot.latitude,
+//             lng: spot.longitude
+//         }
+//         // lvl du zoom
+//         const zoomLevel = 7;
 
-        maps += L.map(`mapid${i}`).setView([spt.lat, spt.lng], zoomLevel);
+//         //  L est un objet
+//         // J'utilise ses methodes
 
-        // AJout du layer a la map(MAPID dans le html)
+//         maps += L.map(`mapid${i}`).setView([spt.lat, spt.lng], zoomLevel);
 
-        i++;
+//         // AJout du layer a la map(MAPID dans le html)
 
-    });
-    const mainLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    });
-    maps.forEach(map => {
-        mainLayer.addTo(map);
-        map.invalidateSize();
-    });
-};
+//         i++;
 
-setTimeout(() => {
-    map();
-}, '500');
+//     });
+//     const mainLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         maxZoom: 19,
+//         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//     });
+//     maps.forEach(map => {
+//         mainLayer.addTo(map);
+
+//     });
+// };
+
+// setTimeout(() => {
+//     map();
+// }, '500');

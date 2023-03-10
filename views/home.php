@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
-    <script src="/main.js"></script>
+    <script defer src="/main.js"></script>
 
     <title>Leaflet</title>
 </head>
@@ -20,32 +20,30 @@
 <body>
     <h3>Hello les girls et les gars</h3>
 
-    <!-- me permet d'afficher  la map -->
-    <!-- <div id="mapid">
+    <!-- me permet d'afficher la map -->
+    <div id="mapid">
 
     </div>
     <button id="button">SEE DATA</button>
-    <p id="text"></p> -->
+    <p id="text"></p>
 
 
 
-    <div id="spots">
+    <!-- <div id="spots"> -->
 
-        <?php
-        $listmap =  json_encode($listMap);
+
+    <!-- $listmap =  json_encode($listMap);
         echo $listmap;
 
         foreach ($listMap as $key => $map) {
 
-            $key++; ?>
+            $key++; 
     </div>
-    <div id='mapid<?= $key ?>' style=" height: 40vh;
+    <div id='mapid' style=" height: 40vh;
     width: 50vw;">
     </div><br>
-    <hr>
-<?php
-        }
-?>
+    <hr> -->
+
 
 
 </body>
